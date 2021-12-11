@@ -34,7 +34,8 @@ blocks:
           - cache restore
       jobs:
         - name: Unit Test
-          commands: npm run test
+          commands: 
+            - npm run test
 
 promotions:
   - name: Dockerize
