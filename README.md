@@ -1,2 +1,2 @@
 # addressbook
-An AddressBook API service tutorial on DO
+A NodeJS application -- AddressBook API service tutorial on DO
