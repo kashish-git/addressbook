@@ -36,8 +36,13 @@ blocks:
         - name: Unit Test
           commands:
             - npm run test
+<<<<<<< HEAD
 promotions:
   - name: Dockerize
     pipeline_file: docker-build.yml
     auto_promote_on:
       - result: passed
+=======
+      secrets:
+        - name: env-production
+>>>>>>> 8c4f0e784371e99c1986d5577b35993e43c2e2b7
