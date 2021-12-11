@@ -22,4 +22,9 @@ blocks:
             - docker pull "${DOCKER_USERNAME}/addressbook:latest" || true
             - docker build --cache-from "${DOCKER_USERNAME}/addressbook:latest" -t "${DOCKER_USERNAME}/addressbook:$SEMAPHORE_WORKFLOW_ID" .
             - docker push "${DOCKER_USERNAME}/addressbook:$SEMAPHORE_WORKFLOW_ID"
+promotions:
+  - name: Deploy to K8s
+    pipeline_file: deploy-k8s.yml
+    auto_promote_on:
+      - result: passed
 
