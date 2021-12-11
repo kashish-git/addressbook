@@ -22,17 +22,16 @@ blocks:
             - cache store
   - name: Tests
     task:
-      jobs: []
-    env_vars:
-      - name: NODE_ENV
-        value: test
-    prologue:
-      commands:
-        - checkout
-        - nvm use
-        - cache restore
-    jobs:
-      - name: Unit Test
+      env_vars:
+        - name: NODE_ENV
+          value: test
+      prologue:
         commands:
-          - sem-service start postgres
-          - npm run test
+          - checkout
+          - nvm use
+          - cache restore
+      jobs:
+        - name: Unit Test
+          commands:
+            - sem-service start postgres
+            - npm run test
