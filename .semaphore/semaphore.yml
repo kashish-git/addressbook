@@ -33,5 +33,6 @@ blocks:
       jobs:
         - name: Unit Test
           commands:
-            - sem-service start postgres
             - npm run test
+      secrets:
+        - name: env-production
