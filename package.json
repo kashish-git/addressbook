@@ -1,0 +1,29 @@
+{
+  "name": "addressbook",
+  "version": "1.0.0",
+  "description": "Addressbook API and Database",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kashish-git/addressbook.git"
+  },
+  "author": "Kashish",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kashish-git/addressbook/issues"
+  },
+  "homepage": "https://github.com/kashish-git/addressbook#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.1",
+    "pg": "^8.7.1",
+    "sequelize": "^6.12.0-beta.2"
+  },
+  "devDependencies": {
+    "jest": "^27.4.4"
+  }
+}
