@@ -1,11 +1,11 @@
 version: v1.0
-name: Address Book
+name: Address Book CI pipeline
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu2004
 blocks:
-  - name: Install dependencies
+  - name: Install dependencies using npm install
     task:
       env_vars:
         - name: NODE_ENV
@@ -20,11 +20,13 @@ blocks:
             - cache restore
             - npm install
             - cache store
-  - name: Tests
+  - name: Test cases using npm run test
     task:
       env_vars:
         - name: NODE_ENV
           value: test
+      secrets:
+        - name: env-production
       prologue:
         commands:
           - checkout
@@ -33,5 +35,9 @@ blocks:
       jobs:
         - name: Unit Test
           commands:
-            - sem-service start postgres
             - npm run test
+promotions:
+  - name: Dockerize
+    pipeline_file: docker-build.yml
+    auto_promote_on:
+      - result: passed
