@@ -20,22 +20,7 @@ blocks:
             - cache restore
             - npm install
             - cache store
-  - name: Test cases using npm run test
-    task:
-      env_vars:
-        - name: NODE_ENV
-          value: test
-      secrets:
-        - name: env-production
-      prologue:
-        commands:
-          - checkout
-          - nvm use
-          - cache restore
-      jobs:
-        - name: Unit Test
-          commands: 
-            - npm run test
+
 
 promotions:
   - name: Dockerize
